@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - MatMundi</title>
+  <style>
+    body, html {
+      margin: 0; padding: 0;
+      font-family: 'Comic Sans MS', cursive;
+      height: 100%;
+      background: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      position: relative;
+      height: 150px; /* altura da onda superior */
+      width: 100%;
+      overflow: hidden;
+      background: transparent;
+      flex-shrink: 0;
+    }
+
+    .onda-container-superior {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+    }
+
+    .onda-superior {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    main {
+      flex-grow: 1; /* ocupa o espaço entre as ondas */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      z-index: 1;
+    }
+
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 30px;
+      box-shadow: 0 0 20px #b58ff2;
+      width: 300px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #b58ff2;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 3px solid #FFA09D;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    input:focus {
+      border-color: #b58ff2;
+      box-shadow: 0 0 8px #a5d6a7;
+    }
+
+    button {
+      width: 70%;
+      padding: 12px;
+      background-color: #FFA09D;
+      border: none;
+      border-radius: 15px;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    button:hover {
+      background-color: #b58ff2;
+    }
+
+    .error {
+      color: red;
+      font-weight: bold;
+      margin-top: 10px;
+      display: none;
+    }
+
+    footer {
+      position: relative;
+      height: 150px; /* altura da onda inferior */
+      width: 100%;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: transparent;
+    }
+
+    .onda-container-inferior {
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+    }
+
+    .onda-inferior {
+      width: 100%;
+      height: 100%;
+      display: block;
+      transform: rotate(180deg); /* inverte a onda para ficar "pra cima" */
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="onda-container-superior">
+      <svg class="onda-superior" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#C2A8FF" fill-opacity="1" d="M0,96L48,85.3C96,75,192,53,288,80C384,107,480,181,576,186.7C672,192,768,128,864,90.7C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+      </svg>
+    </div>
+  </header>
+
+  <main>
+    <form id="loginForm">
+      <h2>Entrar</h2>
+      <input type="text" id="username" placeholder="Usuário" required />
+      <input type="password" id="password" placeholder="Senha" required />
+      <button type="submit">Entrar</button>
+      <p class="error" id="errorMsg">Usuário ou senha inválidos.</p>
+    </form>
+  </main>
+
+  <footer>
+    <div class="onda-container-inferior">
+      <svg class="onda-inferior" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#C2A8FF" fill-opacity="1" d="M0,96L48,85.3C96,75,192,53,288,80C384,107,480,181,576,186.7C672,192,768,128,864,90.7C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+      </svg>
+    </div>
+  </footer>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
+
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+
+      if(user === 'admin' && pass === '1234') {
+        errorMsg.style.display = 'none';
+        window.location.href = 'index.html';
+      } else {
+        errorMsg.style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+</html>
