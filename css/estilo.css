@@ -2,29 +2,33 @@ body {
   margin: 0;
   font-family: 'Comic Sans MS', cursive;
   text-align: center;
+  overflow-x: hidden;
 }
 
 header h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   color: #75EDE6;
 }
 
-
 .avatar-container {
   position: relative;
+  margin: 20px auto;
+  max-width: 90%;
 }
 
-.avatar {
-  width: 120px;
-  height: 120px;
+.avatar, #fotoMascote {
+  width: clamp(80px, 30vw, 120px);
+  height: clamp(80px, 30vw, 120px);
   border-radius: 50%;
   object-fit: cover;
+  cursor: pointer;
+  border: 4px solid #b58ff2;
 }
 
 .trocar-foto {
   background: none;
   border: none;
-  color: #C2A8FF ;
+  color: #C2A8FF;
 }
 
 .nome-usuario {
@@ -34,6 +38,10 @@ header h1 {
 
 .botoes {
   margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .btn {
@@ -44,22 +52,21 @@ header h1 {
   margin: 5px;
   cursor: pointer;
   font-weight: bold;
+  color: white;
 }
 
-.editar {
-  background: #FFA09D ;
-}
-
-.sair {
-  background: #FFA09D ;
+.editar, .sair {
+  background: #FFA09D;
 }
 
 .ranking {
   background: #b6e3b4;
-  padding: 30px;
-  margin: 10px auto;
-  width: 400px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 400px;
   border-radius: 30px;
+  box-sizing: border-box;
 }
 
 .ranking h2 {
@@ -71,67 +78,51 @@ header h1 {
 .ranking ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .ranking li {
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: space-between;
   background: #ffffff80;
   margin: 5px 0;
   padding: 8px 15px;
   border-radius: 10px;
+  font-size: clamp(0.9rem, 4vw, 1.1rem);
 }
 
 .icon {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-#fotoMascote {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  cursor: pointer;
-  object-fit: cover;
-  border: 4px solid #b58ff2;
-}
-
-.onda-container {
+.onda-container, .onda-container-superior {
   position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  height: 80vh; /* aumente aqui (ex: 70vh, 80vh...) */
+  height: 80vh;
   z-index: 0;
   overflow: hidden;
 }
 
+.onda-container {
+  bottom: 0;
+}
 
-.onda-inferior {
+.onda-container-superior {
+  top: 0;
+}
+
+.onda-inferior, .onda-superior {
   width: 100%;
   height: 100%;
 }
 
 main, .ranking, .avatar-container, .botoes {
   position: relative;
-  z-index: 1; /* fica por cima da onda */
-}
-
-.body {
-    position: relative;
-    z-index:auto
-}
-.onda-container-superior {
-  position: absolute;
-  bottom: 20%;
-  left: 0;
-  width: 100%;
-  height: 80vh; /* aumente aqui (ex: 70vh, 80vh...) */
-  z-index: 0;
-  overflow: hidden;
+  z-index: 1;
 }
 
 .nome-container {
@@ -139,27 +130,23 @@ main, .ranking, .avatar-container, .botoes {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 300px;
+  max-width: 90%;
 }
 
-
 #username {
-  border: 5px solid #FFA09D;
-  transition: border-color 0.3s;
   background-color: #FFA09D;
   border: none;
   padding: 10px 20px;
   border-radius: 15px;
   font-size: 1rem;
-  margin: 5px;
-  cursor: pointer;
-  font-weight: bold;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 #username:focus {
   border-color: #b58ff2;
   box-shadow: 0 0 8px #a5d6a7;
+  outline: none;
 }
-
-
-
