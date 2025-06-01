@@ -1,79 +1,41 @@
 body {
   margin: 0;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', cursive;
   text-align: center;
 }
 
-/* Ondas responsivas */
-.onda-container-superior,
-.onda-container {
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-  position: relative;
-  z-index: 0;
-}
-.onda-superior,
-.onda-inferior {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Título */
-header h1,
-.titulo-site {
+header h1 {
   font-size: 2.5rem;
-  color: #4B0082;
-  margin: 20px auto;
+  color: #75EDE6;
 }
 
-/* Avatar */
+
 .avatar-container {
   position: relative;
-  margin-top: 20px;
 }
-#fotoMascote {
+
+.avatar {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #b58ff2;
-  cursor: pointer;
-}
-.avatar-opcao {
-  width: 60px;
-  margin: 5px;
-  border-radius: 50%;
 }
 
-/* Nome */
-.nome-container {
-  margin: 20px auto;
-  max-width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#username {
-  background-color: #FFA09D;
+.trocar-foto {
+  background: none;
   border: none;
-  padding: 10px 20px;
-  border-radius: 15px;
-  font-size: 1rem;
-  font-weight: bold;
-  width: 100%;
-  max-width: 300px;
-}
-#username:focus {
-  border-color: #b58ff2;
-  box-shadow: 0 0 8px #a5d6a7;
+  color: #C2A8FF ;
 }
 
-/* Botões */
+.nome-usuario {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
 .botoes {
   margin-top: 15px;
 }
+
 .btn {
   border: none;
   padding: 10px 20px;
@@ -82,37 +44,45 @@ header h1,
   margin: 5px;
   cursor: pointer;
   font-weight: bold;
-  background: #FFA09D;
 }
 
-/* Ranking */
+.editar {
+  background: #FFA09D ;
+}
+
+.sair {
+  background: #FFA09D ;
+}
+
 .ranking {
   background: #b6e3b4;
-  padding: 20px;
-  margin: 20px auto;
+  padding: 30px;
+  margin: 10px auto;
+  width: 400px;
   border-radius: 30px;
-  width: 90%;
-  max-width: 420px;
 }
+
 .ranking h2 {
   font-size: 1.5rem;
   margin-bottom: 10px;
+  font-weight: bold;
 }
+
 .ranking ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
+
 .ranking li {
   display: flex;
-  align-items: center;
+  align-items:center;
   justify-content: space-between;
-  background: #ffffffcc;
+  background: #ffffff80;
   margin: 5px 0;
-  padding: 10px 15px;
+  padding: 8px 15px;
   border-radius: 10px;
-  font-size: 1rem;
 }
+
 .icon {
   width: 28px;
   height: 28px;
@@ -120,24 +90,73 @@ header h1,
   object-fit: cover;
 }
 
-/* Responsivo */
-@media (max-width: 600px) {
-  header h1,
-  .titulo-site {
-    font-size: 2rem;
-  }
+#fotoMascote {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+  border: 4px solid #b58ff2;
+}
 
-  .ranking li {
-    font-size: 0.9rem;
-    padding: 8px 10px;
-  }
+.onda-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80vh; /* aumente aqui (ex: 70vh, 80vh...) */
+  z-index: 0;
+  overflow: hidden;
+}
 
-  .btn {
-    font-size: 0.9rem;
-    padding: 8px 15px;
-  }
 
-  #username {
-    font-size: 0.9rem;
-  }
+.onda-inferior {
+  width: 100%;
+  height: 100%;
+}
+
+main, .ranking, .avatar-container, .botoes {
+  position: relative;
+  z-index: 1; /* fica por cima da onda */
+}
+
+.body {
+    position: relative;
+    z-index:auto
+}
+.onda-container-superior {
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  width: 100%;
+  height: 80vh; /* aumente aqui (ex: 70vh, 80vh...) */
+  z-index: 0;
+  overflow: hidden;
+}
+
+.nome-container {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+}
+
+
+#username {
+  border: 5px solid #FFA09D;
+  transition: border-color 0.3s;
+  background-color: #FFA09D;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 1rem;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#username:focus {
+  border-color: #b58ff2;
+  box-shadow: 0 0 8px #a5d6a7;
 }
