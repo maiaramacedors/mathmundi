@@ -1,35 +1,60 @@
 body {
   margin: 0;
-  font-family: 'Comic Sans MS', cursive;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
   text-align: center;
+  background-color: #fff;
 }
 
-header h1 {
-  font-size: 2.5rem;
-  color: #75EDE6;
+.titulo-site {
+  text-align: center;
+  font-size: 3rem;
+  margin: 20px auto 10px;
+  color: #4B0082;
 }
-
 
 .avatar-container {
   position: relative;
+  margin-top: 20px;
 }
 
-.avatar {
-  width: 120px;
-  height: 120px;
+#fotoMascote {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #b58ff2;
+  cursor: pointer;
+}
+
+.avatar-opcao {
+  width: 60px;
+  margin: 5px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.trocar-foto {
-  background: none;
-  border: none;
-  color: #C2A8FF ;
+.nome-container {
+  margin: 15px auto;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.nome-usuario {
-  margin-top: 5px;
+#username {
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 1rem;
   font-weight: bold;
+  border: 3px solid #FFA09D;
+  background-color: #FFA09D;
+  width: 100%;
+  max-width: 300px;
+}
+
+#username:focus {
+  border-color: #b58ff2;
+  box-shadow: 0 0 8px #a5d6a7;
 }
 
 .botoes {
@@ -37,50 +62,45 @@ header h1 {
 }
 
 .btn {
-  border: none;
   padding: 10px 20px;
   border-radius: 15px;
   font-size: 1rem;
+  font-weight: bold;
+  background-color: #FFA09D;
+  border: none;
   margin: 5px;
   cursor: pointer;
-  font-weight: bold;
-}
-
-.editar {
-  background: #FFA09D ;
-}
-
-.sair {
-  background: #FFA09D ;
 }
 
 .ranking {
   background: #b6e3b4;
-  padding: 30px;
-  margin: 10px auto;
-  width: 400px;
+  padding: 25px;
+  margin: 30px auto;
+  width: 90%;
+  max-width: 400px;
   border-radius: 30px;
 }
 
 .ranking h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+  font-size: 1.6rem;
   font-weight: bold;
 }
 
 .ranking ul {
-  list-style: none;
   padding: 0;
+  list-style: none;
+  margin: 0;
 }
 
 .ranking li {
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: space-between;
-  background: #ffffff80;
-  margin: 5px 0;
-  padding: 8px 15px;
+  background: #ffffffcc;
+  padding: 10px 15px;
+  margin: 6px 0;
   border-radius: 10px;
+  font-size: 1rem;
 }
 
 .icon {
@@ -90,73 +110,63 @@ header h1 {
   object-fit: cover;
 }
 
-#fotoMascote {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  cursor: pointer;
+.onda-container-superior {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1440 / 320;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.onda-superior {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border: 4px solid #b58ff2;
+  display: block;
 }
 
 .onda-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 80vh; /* aumente aqui (ex: 70vh, 80vh...) */
-  z-index: 0;
+  aspect-ratio: 1440 / 640;
   overflow: hidden;
+  z-index: 0;
 }
-
 
 .onda-inferior {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 main, .ranking, .avatar-container, .botoes {
   position: relative;
-  z-index: 1; /* fica por cima da onda */
+  z-index: 1;
 }
 
-.body {
-    position: relative;
-    z-index:auto
-}
-.onda-container-superior {
-  position: absolute;
-  bottom: 20%;
-  left: 0;
-  width: 100%;
-  height: 80vh; /* aumente aqui (ex: 70vh, 80vh...) */
-  z-index: 0;
-  overflow: hidden;
-}
-
-.nome-container {
-  margin: 20px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 300px;
-}
-
-
-#username {
-  border: 5px solid #FFA09D;
-  transition: border-color 0.3s;
-  background-color: #FFA09D;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 15px;
-  font-size: 1rem;
-  margin: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-#username:focus {
-  border-color: #b58ff2;
-  box-shadow: 0 0 8px #a5d6a7;
+@media (max-width: 600px) {
+  .titulo-site {
+    font-size: 2rem;
+    margin-top: 10px;
+  }
+  .ranking li {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+  #username {
+    font-size: 0.9rem;
+  }
+  .btn {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+  #fotoMascote {
+    width: 90px;
+    height: 90px;
+  }
 }
