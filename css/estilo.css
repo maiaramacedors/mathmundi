@@ -1,7 +1,10 @@
+/* === estilo.css atualizado === */
+
 body {
   margin: 0;
-  font-family: 'Comic Sans MS', cursive;
+  font-family: 'Arial', sans-serif;
   text-align: center;
+  background-color: #fff;
 }
 
 header h1 {
@@ -9,9 +12,32 @@ header h1 {
   color: #75EDE6;
 }
 
+.titulo-site {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 0 auto 10px auto;
+  color: #4B0082;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+.onda-container-superior {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-bottom: -60px;
+  overflow: hidden;
+}
+
+.onda-superior {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1440/320;
+  display: block;
+}
 
 .avatar-container {
   position: relative;
+  margin-top: 10px;
 }
 
 .avatar {
@@ -24,7 +50,7 @@ header h1 {
 .trocar-foto {
   background: none;
   border: none;
-  color: #C2A8FF ;
+  color: #C2A8FF;
 }
 
 .nome-usuario {
@@ -47,18 +73,19 @@ header h1 {
 }
 
 .editar {
-  background: #FFA09D ;
+  background: #FFA09D;
 }
 
 .sair {
-  background: #FFA09D ;
+  background: #FFA09D;
 }
 
 .ranking {
   background: #b6e3b4;
-  padding: 30px;
+  padding: 20px;
   margin: 10px auto;
-  width: 400px;
+  width: 90%;
+  max-width: 400px;
   border-radius: 30px;
 }
 
@@ -75,7 +102,7 @@ header h1 {
 
 .ranking li {
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: space-between;
   background: #ffffff80;
   margin: 5px 0;
@@ -100,38 +127,22 @@ header h1 {
 }
 
 .onda-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 80vh; /* aumente aqui (ex: 70vh, 80vh...) */
-  z-index: 0;
   overflow: hidden;
+  margin-top: -60px;
 }
-
 
 .onda-inferior {
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 1440/640;
+  display: block;
 }
 
 main, .ranking, .avatar-container, .botoes {
   position: relative;
-  z-index: 1; /* fica por cima da onda */
-}
-
-.body {
-    position: relative;
-    z-index:auto
-}
-.onda-container-superior {
-  position: absolute;
-  bottom: 20%;
-  left: 0;
-  width: 100%;
-  height: 80vh; /* aumente aqui (ex: 70vh, 80vh...) */
-  z-index: 0;
-  overflow: hidden;
+  z-index: 1;
 }
 
 .nome-container {
@@ -142,12 +153,9 @@ main, .ranking, .avatar-container, .botoes {
   max-width: 300px;
 }
 
-
 #username {
   border: 5px solid #FFA09D;
-  transition: border-color 0.3s;
   background-color: #FFA09D;
-  border: none;
   padding: 10px 20px;
   border-radius: 15px;
   font-size: 1rem;
@@ -159,4 +167,18 @@ main, .ranking, .avatar-container, .botoes {
 #username:focus {
   border-color: #b58ff2;
   box-shadow: 0 0 8px #a5d6a7;
+}
+
+@media screen and (max-width: 600px) {
+  .titulo-site {
+    font-size: 2rem;
+  }
+  .ranking {
+    width: 95%;
+    padding: 15px;
+  }
+  .btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
 }
